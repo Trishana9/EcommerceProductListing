@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+	<title>Ecommerce</title>
+    <script>
+        tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                'pacifico': ['Pacifico', 'cursive'] 
+            },      
+        },
+
+        }
+        }
+        </script>
+
+</head>
+<body class="p-0 m-0">
+	<nav>
+		<div class="flex items-center px-20 h-20 bg-emerald-100 font-pacifico text-3xl shadow-md mb-10">
+            <p>Ecommerce</p>
+        </div>
+	</nav>
+	<main>
+		<div>
+            <div class="productlist grid grid-cols-4 mx-20" id="productlist"></div>
+		    <div class="pagination mx-20 float-right" id="pagination"></div>
+        </div>
+	</main>
+	<script src="script.js"></script>
+</body>
+</html>
+
+
