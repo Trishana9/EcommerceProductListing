@@ -5,6 +5,7 @@ fetch('https://dummyjson.com/products')
 
     const list_element = document.getElementById('productlist');
     const pagination_element = document.getElementById('pagination');
+    const details = document.getElementById('details');
 
     let current_page = 1;
     let product_per_page = 20;
@@ -46,13 +47,16 @@ fetch('https://dummyjson.com/products')
             real_price.innerHTML = "Rs."+item.price;
 
             let discount_product = document.createElement('p');
-            discount_product.innerHTML = item.discountPercentage+"%";
+            discount_product.innerHTML = "-"+item.discountPercentage+"%";
 
-            div_product.classList.add('border','flex','flex-col','justify-center', 'py-8')
+            div_product.classList.add('border','flex','flex-col','justify-center', 'py-8','cursor-pointer')
             div_img.classList.add('flex','justify-center', 'items-center')
             image_product.classList.add('h-64','w-80')
             div_detail.classList.add('px-10')
             div_price.classList.add('flex')
+            price_product.classList.add('font-bold','text-emerald-500')
+            real_price.classList.add('text-gray-500','mr-3','line-through','text-sm')
+            discount_product.classList.add('text-sm')
 
             product_wrapper.appendChild(div_product);
             div_img.appendChild(image_product);
@@ -63,6 +67,13 @@ fetch('https://dummyjson.com/products')
             div_detail.appendChild(div_price);
             div_price.appendChild(real_price);
             div_price.appendChild(discount_product);
+
+            div_product.addEventListener('click',()=>{
+                console.log(item.id);
+                let id = item.id;
+                const url = "productDetail.html?id="+id;
+                window.location.href = url;
+            })
             
         }
     }

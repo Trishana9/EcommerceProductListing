@@ -22,18 +22,30 @@
 </head>
 <body class="p-0 m-0">
 	<nav class="">
-		<div class="fixed inset-0 overflow-hidden flex items-center px-36 h-20 bg-emerald-100 font-pacifico text-3xl shadow-md mb-10">
-            <p>Ecommerce</p>
+		<div class="fixed inset-0 overflow-hidden flex justify-between items-center px-36 h-20 bg-emerald-100  shadow-md mb-10">
+            <div>
+                <p class="font-pacifico text-3xl">Ecommerce</p>
+            </div>
+            <div class="">
+                <ul>
+                    <li class="inline-block mx-5 cursor-pointer font-bold hover:text-gray-600 "><a>Home</a></li>
+                    <li class="inline-block mx-5 cursor-pointer border border-b-black border-b-2  border-x-transparent border-t-transparent text-gray-600 font-bold"><a>Shop</a></li>
+                    <li class="inline-block mx-5 cursor-pointer font-bold hover:text-gray-600 "><a>About</a></li>
+                    <li class="inline-block mx-5 cursor-pointer font-bold hover:text-gray-600" ><a>Contact</a></li>
+                    <li class="inline-block mx-5 cursor-pointer font-bold text-white bg-black hover:bg-gray-700 px-12 py-2 " ><a>Sign Up</a></li>
+                    <li class="inline-block mx-5 cursor-pointer text-white font-bold bg-black hover:bg-gray-700 px-12 py-2 " ><a>LogIn</a></li>
+                </ul>
+            </div>
         </div>
 	</nav>
 	<main>
        
-		<div class="pt-28 mx-36">
+		<div class="mt-28 mx-36">
             <div class="productlist grid grid-cols-4 gap-5 " id="productlist"></div>
 		    <div class="pagination  float-right my-3" id="pagination"></div>
         </div>
 	</main>
-	<script src="script.js"></script>
+	<script src="main.js"></script>
 </body>
 </html>
 
