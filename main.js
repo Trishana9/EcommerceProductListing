@@ -106,4 +106,6 @@ fetch('https://dummyjson.com/products')
     DisplayList(product_list, list_element, product_per_page, current_page);
     SetupPagination(product_list, pagination_element, product_per_page);
 
-})
+}).catch((error) => {
+    console.log(error);
+  });

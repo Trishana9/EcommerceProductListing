@@ -84,9 +84,9 @@ fetch('https://dummyjson.com/products')
     description.innerHTML=product_list.description
     description.classList.add('text-sm')
 
-    product_detail_div.classList.add('ml-10')
+    product_detail_div.classList.add('ml-10','sm:ml-0')
 
-    img_section.classList.add('relative','h-80','w-96')
+    img_section.classList.add('relative','h-80','w-96','mx-5')
     prev.classList.add('absolute','top-0','my-36')
     next.classList.add('absolute','top-0','right-0','my-36')
     
@@ -176,4 +176,6 @@ fetch('https://dummyjson.com/products')
 
 
 
-})
+}).catch((error) => {
+    console.log(error);
+  });

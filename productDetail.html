@@ -15,7 +15,11 @@
             extend: {
                 fontFamily: {
                 'pacifico': ['Pacifico', 'cursive'] 
-            },      
+            },  
+            screens: {
+            'sm': {'max': '991px'},
+            'md':  {'min': '991px', 'max': '1200px'},
+            },    
         },
 
         }
@@ -26,18 +30,13 @@
 </head>
 <body class="p-0 m-0">
 	<nav class="">
-		<div class="fixed inset-0 overflow-hidden flex items-center px-36 h-20 bg-emerald-100 font-pacifico text-3xl shadow-md mb-10">
+		<div class="fixed inset-0 flex z-10 items-center px-36 h-20 bg-emerald-100 font-pacifico text-3xl shadow-md mb-10 sm:px-10">
             <p>Ecommerce</p>
         </div>
 	</nav>
 	<main class="flex justify-center">
        
-		<div id="details" class="details p-5 flex mt-28 w-[50%] border">
-            <!-- <div id="picswap">
-                <img class="h-64 w-96 " id="images">
-                <button id="prev" class="bg-blue-400">prev</button>
-                <button id="next" class="bg-red-400">next</button>
-            </div> -->
+		<div id="details" class="details p-5 flex mt-28 w-[900px] border sm:flex-col sm:mx-44">
         </div>
 	</main>
 	
