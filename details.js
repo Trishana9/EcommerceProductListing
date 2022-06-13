@@ -11,8 +11,17 @@ fetch('https://dummyjson.com/products')
     console.log(product_list);
 
     const detail = document.getElementById('details');
-    let prev = document.getElementById('prev');
-    let next = document.getElementById('next');
+
+    let img_section = document.createElement('div');
+    let img_container = document.createElement('div');
+    let img_slider = document.createElement('div');
+
+    let prev = document.createElement('button');
+    prev.innerHTML='<i class="fa fa-arrow-circle-left text-3xl bg-white w-10 rounded-full" aria-hidden="true"></i>'
+    
+    let next = document.createElement('button');
+    next.innerHTML='<i class="fa fa-arrow-circle-right text-3xl bg-white w-10 rounded-full" aria-hidden="true"></i>'
+    
 
     let product_detail_div = document.createElement('div');
     let title = document.createElement('p')
@@ -76,7 +85,17 @@ fetch('https://dummyjson.com/products')
     description.classList.add('text-sm')
 
     product_detail_div.classList.add('ml-10')
+
+    img_section.classList.add('relative','h-80','w-96')
+    prev.classList.add('absolute','top-0','my-36')
+    next.classList.add('absolute','top-0','right-0','my-36')
     
+
+    detail.appendChild(img_section);
+    img_section.appendChild(img_container)
+    img_container.appendChild(img_slider);
+    img_section.appendChild(prev)
+    img_section.appendChild(next)
 
     detail.appendChild(product_detail_div);
     product_detail_div.appendChild(title);
@@ -96,56 +115,45 @@ fetch('https://dummyjson.com/products')
     description_section.appendChild(p_description)
     description_section.appendChild(description)
 
-    if(document.getElementById("picswap")){
-          let i = 0;
-          const sliders = () => {
-              document.getElementById("images").src= product_list.images[i];
-              document.getElementById("images").classList.add('fade-in');
-  
-              (i < product_list.images.length - 1) ? i++ : i = 0;
-              console.log("after:",i);
-              prev.addEventListener('click',()=>{
-                  console.log("action:",product_list.images[i],"i:",i);
+    let i=0;
+
+    let images = document.createElement('img');
+    let value = product_list.images[i];
+    images.src = value;
+    img_slider.appendChild(images);
+    img_slider.classList.add('flex','h-80','w-96')
+
+
+    if(document.getElementById("details")){
+        const sliders = () => {
+
+            console.log("after:",i);
+            images.src= product_list.images[i];
+            images.classList.add('fade-in');
+            (i < product_list.images.length - 1) ? i++ : i = 0;
+        
+        };
+
+        next.addEventListener('click',()=>
+        {
                 
-                  if(i>1){
-                      i--;
-                      document.getElementById("images").src= product_list.images[i];
-                      console.log("if->:",i);
-                      document.getElementById("images").classList.add('fade-in');
-                      
-                
-                  }
-                  if(i==1){
-                      i=product_list.images.length-1;
-                      document.getElementById("images").src= product_list.images[i];
-                      console.log("if-1:",i);
-                      document.getElementById("images").classList.add('fade-in');
-                
-                  }
-                  if(i==0){
-                      i=product_list.images.length-2;
-                      document.getElementById("images").src= product_list.images[i];
-                      console.log("if-0:",i);
-                      document.getElementById("images").classList.add('fade-in');
-                
-                  }
-               
-              })
-  
-              next.addEventListener('click',()=>{
-                  console.log(i)
-                  document.getElementById("images").src= product_list.images[i];                      
-                  document.getElementById("images").classList.add('fade-in');
-                
-              })
-              
-          };
-  
-          sliders(); // Start slider immediately
-          setInterval(sliders, 4000); // Slide every 4 seconds
-  
-      }
-    
+            (i < product_list.images.length - 1) ? i++ : i = 0;
+            images.src = product_list.images[i];
+            images.classList.add('fade-in');
+        })
+
+        prev.addEventListener('click',()=>
+        {
+            (i < product_list.images.length - 1) ? (i==0? i=product_list.images.length-1 : i--) : i = product_list.images.length-2;
+
+            images.src = product_list.images[i];
+            images.classList.add('fade-in');
+        })
+
+        sliders(); // Start slider immediately
+        setInterval(sliders, 4000); // Slide every 4 seconds
+
+    }
 
 
     const starsTotal =5;
