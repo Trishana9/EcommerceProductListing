@@ -1,13 +1,13 @@
-fetch('https://dummyjson.com/products')
+// console.log(list_items.products);
+const queryString = window.location.search;
+console.log(queryString);
+const urlParams = new URLSearchParams(queryString);
+const id = urlParams.get('id')
+console.log(id);
+fetch('https://dummyjson.com/products/'+id)
 .then(res => res.json())
 .then(list_items => {
-    console.log(list_items.products);
-    const queryString = window.location.search;
-    console.log(queryString);
-    const urlParams = new URLSearchParams(queryString);
-    const id = urlParams.get('id')
-    console.log(id);
-    let product_list = list_items.products[id-1];
+    let product_list = list_items;
     console.log(product_list);
 
     const detail = document.getElementById('details');
@@ -126,8 +126,6 @@ fetch('https://dummyjson.com/products')
 
     if(document.getElementById("details")){
         const sliders = () => {
-
-            console.log("after:",i);
             images.src= product_list.images[i];
             images.classList.add('fade-in');
             (i < product_list.images.length - 1) ? i++ : i = 0;
@@ -136,7 +134,6 @@ fetch('https://dummyjson.com/products')
 
         next.addEventListener('click',()=>
         {
-                
             (i < product_list.images.length - 1) ? i++ : i = 0;
             images.src = product_list.images[i];
             images.classList.add('fade-in');
@@ -145,7 +142,6 @@ fetch('https://dummyjson.com/products')
         prev.addEventListener('click',()=>
         {
             (i < product_list.images.length - 1) ? (i==0? i=product_list.images.length-1 : i--) : i = product_list.images.length-2;
-
             images.src = product_list.images[i];
             images.classList.add('fade-in');
         })
